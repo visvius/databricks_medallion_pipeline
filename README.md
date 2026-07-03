@@ -10,7 +10,7 @@ The Project demonstrates a production-grade data pipeline utilizing the **Medall
 * **Languages:** Python (PySpark), Spark SQL
 * **Data Governance:** Unity Catalog
 * **Storage:** Databricks Volumes, Delta Lake
-* **Orchestration:** Databricks Jobs and Pipelines (Notebook Orchestration also present but execution is serial instead of Parallel)
+* **Orchestration:** Databricks Jobs and Pipelines (Note: The repository also includes standard Notebook Orchestration via dbutils for serial testing, but production runs are optimized for parallel execution via the Jobs UI).
 
 ## 🏗️ Architecture & Data Flow
 
@@ -48,3 +48,14 @@ The pipeline is fully automated using **Databricks Jobs and Pipelines**. Indepen
 
 ### Execution Timeline
 ![Job Timeline](./reference_images/Timeline.png)
+
+## 🌐 Data Lineage & Governance
+Databricks Unity Catalog automatically tracks table dependencies. Below is the generated lineage graph proving the relationships between the cleansed Silver data, the Gold dimensions, and the final Gold Fact table.
+
+![Unity Catalog Lineage Graph](<./reference_images/Lineage Graph of Fact_sales.png>)
+
+## 📊 Final Business Value (Gold Layer Output)
+Below is a snapshot of the resulting `fact_sales` table. This central Fact table successfully utilizes surrogate keys (`product_key`, `customer_key`) to unify the disparate CRM and ERP source systems, providing clean, query-optimized metrics for downstream BI tools.
+
+![Fact Sales Table](<./reference_images/Gold Fact Table.png>)
+

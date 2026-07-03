@@ -1,0 +1,22 @@
+DATA:
+6 csv files in volume: 3 crm + 3 erp
+stored in volume inside bronze schema in databricks_medallion_pipeline catalog
+
+BRONZE:
+imported data from csv files stored in volume
+1:1 copy with no transformations
+total 6 bronze tables
+
+SILVER:
+one transformed table created for each bronze table
+tranformations included trim, normalization, renaming columns, cleaning up null values
+total 6 silver tables
+
+GOLD:
+combining the silver tables and creating star schema
+includes :
+	customers dimension
+	products dimension
+	sales fact table
+
+used pyspark mostly, sometimes pyspark SQL

@@ -3,8 +3,7 @@
 ## 📌 Project Overview
 The Project demonstrates a production-grade data pipeline utilizing the **Medallion Architecture (Bronze, Silver, Gold)** within Databricks. It ingests raw CSV data from CRM(Customer Relationship Management) and ERP(Enterprise Resource Planning) systems, performs data cleaning and transformations using PySpark, and models the final data into a Kimball-style Star Schema for business intelligence and analytics.
 
-![Medallion Architecture Overview](path/to/your/medallion_image.png)
-*(Note: Replace with your general medallion architecture image)*
+![Medallion Architecture Overview](<./reference_images/Medallion Architecture.png>)
 
 ## 🛠️ Tech Stack & Tools
 * **Platform:** Databricks
@@ -45,9 +44,7 @@ The Project demonstrates a production-grade data pipeline utilizing the **Medall
 The pipeline is fully automated using **Databricks Jobs and Pipelines**. Independent Silver layer transformations run in parallel to optimize cluster compute time, while dependency triggers ensure the Gold layer only executes upon successful completion of upstream tasks.
 
 ### Directed Acyclic Graph (DAG)
-![Databricks Workflow DAG](path/to/your/dag_image.png)
-*(Note: Replace with the screenshot of your pipeline graph)*
+![Databricks Workflow DAG](./reference_images/DAG.png)
 
 ### Execution Timeline
-![Job Timeline](path/to/your/timeline_image.png)
-*(Note: Replace with the screenshot showing parallel execution times)*
+![Job Timeline](./reference_images/Timeline.png)
